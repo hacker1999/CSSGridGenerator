@@ -9,7 +9,6 @@ directory = 'grid%s_%s_%s_%s' % (width, cols, margin_left, margin_right)
 try:
     os.makedirs(directory)
     os.makedirs(directory + '/css')
-    os.makedirs(directory + '/img')
 except OSError:
     pass
 css = '.container{width:%spx;margin:auto}.column{float:left;margin-left:%spx;margin-right:%spx}'
