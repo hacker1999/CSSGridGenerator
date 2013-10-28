@@ -35,10 +35,6 @@ table {
 
 :focus {
     outline: none;
-}
-
-.clearfix {
-    clear: both;
 }""")
 html = """<!DOCTYPE html>
 <html>
@@ -51,7 +47,7 @@ html = """<!DOCTYPE html>
         <div class="container">
 """
 i = 1
-row = '            <div class="column column{0}">.column{0}</div>\n            <div class="column column{1}">.column{1}</div>\n            <br class="clearfix">\n'
+row = '            <div class="column column{0}">.column{0}</div>\n            <div class="column column{1}">.column{1}</div>\n'
 while i < cols:
     html += row.format(i, cols - i)
     i += 1
