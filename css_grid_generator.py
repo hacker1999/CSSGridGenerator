@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # author tz4678@gmail.com
 import os
+import shutil
 width = int(raw_input('Width in px: '))
 cols = int(raw_input('Cols: '))
 margin_left = int(raw_input('Left margin: '))
@@ -20,22 +21,7 @@ while i < cols:
     css += rule % (i, col_width * i - margin_left - margin_right)
     i += 1
 open(directory + '/css/grid.css', 'w').write(css)
-open(directory + '/css/common.css', 'w').write("""body {
-    margin: 0;
-}
-
-img {
-    border: 0;  
-}
-
-table {
-    border-collapse: 0;
-    border-spacing: 0;
-}
-
-:focus {
-    outline: none;
-}""")
+shutil.copy2('common.css', directory + '/css')
 html = """<!DOCTYPE html>
 <html>
     <head>
