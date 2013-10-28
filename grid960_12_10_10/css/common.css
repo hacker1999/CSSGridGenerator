@@ -1,0 +1,20 @@
+body {
+    margin: 0;
+}
+
+img {
+    border: 0;  
+}
+
+table {
+    border-collapse: 0;
+    border-spacing: 0;
+}
+
+:focus {
+    outline: none;
+}
+
+.clearfix {
+    clear: both;
+}
