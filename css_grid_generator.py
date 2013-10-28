@@ -12,7 +12,7 @@ try:
     os.makedirs(directory + '/css')
 except OSError:
     pass
-css = '.container{width:%spx;margin:auto}.column{float:left;margin: 0 %spx 0 %spx}'
+css = '.container{width:%spx;margin:auto}.column{float:left;margin:0 %spx 0 %spx}'
 css = css % (width, margin_left, margin_right)
 i = 1
 col_width = width / cols
