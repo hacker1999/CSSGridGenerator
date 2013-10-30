@@ -12,14 +12,17 @@ try:
     os.makedirs(directory + '/css')
 except OSError:
     pass
-css = '.container{width:%spx;margin:auto}.column{float:left;margin:0 %spx 0 %spx}'
-css = css % (width, margin_left, margin_right)
+css = '.grid{width:%spx;margin:auto}' % (width
 i = 1
 col_width = width / cols
-rule = '.column%s{width:%spx}'
+rule = '%s{width:%spx}'
+L = [none] * klass
 while i < cols:
-    css += rule % (i, col_width * i - margin_left - margin_right)
+    klass = '.grid%s' % i
+    L[i] = klass
+    css += rule % (klass, col_width * i - margin_left - margin_right)
     i += 1
+css += ','.join(L) + ('{float:left;margin:0 %spx 0 %spx}' % (margin_left, margin_right))
 open(directory + '/css/grid.css', 'w').write(css)
 shutil.copy2('common.css', directory + '/css')
 html = """<!DOCTYPE html>
@@ -33,7 +36,7 @@ html = """<!DOCTYPE html>
         <div class="container">
 """
 i = 1
-row = '            <div class="column column{0}">.column{0}</div>\n            <div class="column column{1}">.column{1}</div>\n'
+row = '            <div class="grid{0}">.grid{0}</div>\n            <div class="grid{1}">.grid{1}</div>\n'
 while i < cols:
     html += row.format(i, cols - i)
     i += 1
